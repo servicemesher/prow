@@ -15,4 +15,6 @@ plugins:
   - assign # /assign @user, /cc @user
   - approve # /approve
   - verify-owners
-
+  - blunderbuss # /auto-cc
+  - hold # /hold
+  - lifecycle # /close, /reopen
