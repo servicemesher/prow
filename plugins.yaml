@@ -1,0 +1,17 @@
+plugins:
+  servicemesher: # 项目仓库名，只填写组织则可以应用到组织下的所有仓库
+  - size
+  - welcome
+  - owners-label
+  - wip
+  - cat # /meow
+  - dog # /woof
+  - pony # /pony
+  - yuks # /joke
+  - help # /help
+  - label # /key value, /kind bug, /language zh
+  - skip # /skip
+  - lgtm # /lgtm
+  - assign # /assign @user, /cc @user
+  - approve # /approve
+
