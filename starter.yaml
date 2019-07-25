@@ -8,6 +8,11 @@ metadata:
   name: prow
 ---
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: prow-jobs
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
   namespace: prow
@@ -23,7 +28,7 @@ metadata:
 data:
   config.yaml: |
     prowjob_namespace: prow
-    pod_namespace: prow
+    pod_namespace: prow-jobs
     periodics:
     - interval: 10m
       agent: kubernetes
@@ -527,7 +532,7 @@ subjects:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  namespace: prow
+  namespace: prow-jobs
   name: "deck"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -559,7 +564,7 @@ rules:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  namespace: prow
+  namespace: prow-jobs
   name: "deck"
 rules:
   - apiGroups:
@@ -627,7 +632,7 @@ rules:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  namespace: prow
+  namespace: prow-jobs
   name: "plank"
 rules:
   - apiGroups:
@@ -655,7 +660,7 @@ subjects:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  namespace: prow
+  namespace: prow-jobs
   name: "plank"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
@@ -689,7 +694,7 @@ rules:
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  namespace: prow
+  namespace: prow-jobs
   name: "sinker"
 rules:
   - apiGroups:
@@ -716,7 +721,7 @@ subjects:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
-  namespace: prow
+  namespace: prow-jobs
   name: "sinker"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
