@@ -49,7 +49,7 @@ kubectl -n prow create secret generic cookie --from-file=secret=cookie.txt
 tee > github-oauth-config.yaml << EOF
 client_id: 43c958168f1c2f2xxxxx
 client_secret: 7b38b9ab9bda37ac85cf2a057ec196da87exxxxx
-redirect_url: https://prow.servicemesher.com//github-login/redirect
+redirect_url: https://prow.servicemesher.com/github-login/redirect
 final_redirect_url: https://prow.servicemesher.com/pr
 EOF
 kubectl -n prow create secret generic github-oauth-config --from-file=secret=github-oauth-config.yaml
